@@ -1,0 +1,19 @@
+[
+  {
+    "_id": "3cc16000-92a3-11e7-b4f8-6947ec97a76c",
+    "_type": "dashboard",
+    "_source": {
+      "title": "pfSense",
+      "hits": 0,
+      "description": "pfSense Dashboard",
+      "panelsJSON": "[{\"col\":8,\"id\":\"f636e740-92a2-11e7-b4f8-6947ec97a76c\",\"panelIndex\":1,\"row\":1,\"size_x\":5,\"size_y\":5,\"type\":\"visualization\"},{\"col\":4,\"id\":\"b3c31a50-92c5-11e7-87a2-7940ffb808f9\",\"panelIndex\":2,\"row\":1,\"size_x\":4,\"size_y\":5,\"type\":\"visualization\"},{\"col\":1,\"id\":\"33c9cd60-92c7-11e7-87a2-7940ffb808f9\",\"panelIndex\":3,\"row\":1,\"size_x\":3,\"size_y\":5,\"type\":\"visualization\"},{\"col\":1,\"id\":\"ed689730-9379-11e7-851b-4be14ad14ed6\",\"panelIndex\":4,\"row\":6,\"size_x\":12,\"size_y\":5,\"type\":\"visualization\"}]",
+      "optionsJSON": "{\"darkTheme\":true}",
+      "uiStateJSON": "{\"P-1\":{\"mapCenter\":[13.581920900545844,12.480468749999998],\"mapZoom\":2},\"P-3\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}},\"vis\":{\"defaultColors\":{\"0 - 200\":\"rgb(0,104,55)\",\"200 - 400\":\"rgb(76,176,93)\",\"400 - 600\":\"rgb(183,224,117)\",\"600 - 800\":\"rgb(255,255,190)\",\"800 - 1000\":\"rgb(253,191,111)\",\"1000 - 1200\":\"rgb(234,88,57)\",\"1200 - 1400\":\"rgb(165,0,38)\"}}},\"P-4\":{\"vis\":{\"legendOpen\":false}}}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"match_all\":{}}}],\"highlightAll\":true,\"version\":true}"
+      }
+    }
+  }
+]

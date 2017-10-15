@@ -1,0 +1,58 @@
+[
+  {
+    "_id": "33c9cd60-92c7-11e7-87a2-7940ffb808f9",
+    "_type": "visualization",
+    "_source": {
+      "title": "Blocked Entree Metric",
+      "visState": "{\"title\":\"Blocked Entree Metric\",\"type\":\"metric\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"type\":\"gauge\",\"gauge\":{\"verticalSplit\":false,\"autoExtend\":false,\"percentageMode\":false,\"gaugeType\":\"Arc\",\"gaugeStyle\":\"Full\",\"backStyle\":\"Full\",\"orientation\":\"vertical\",\"colorSchema\":\"Green to Red\",\"gaugeColorMode\":\"Labels\",\"useRange\":false,\"colorsRange\":[{\"from\":0,\"to\":200},{\"from\":200,\"to\":400},{\"from\":400,\"to\":600},{\"from\":600,\"to\":800},{\"from\":800,\"to\":1000},{\"from\":1000,\"to\":1200},{\"from\":1200,\"to\":1400}],\"invertColors\":false,\"labels\":{\"show\":true,\"color\":\"black\"},\"scale\":{\"show\":false,\"labels\":false,\"color\":\"#333\",\"width\":2},\"type\":\"meter\",\"style\":{\"fontSize\":60,\"bgColor\":false,\"labelColor\":true,\"subText\":\"Blocked Entrees\",\"bgFill\":\"\"},\"extendRange\":false}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"defaultColors\":{\"0 - 200\":\"rgb(0,104,55)\",\"200 - 400\":\"rgb(76,176,93)\",\"400 - 600\":\"rgb(183,224,117)\",\"600 - 800\":\"rgb(255,255,190)\",\"800 - 1000\":\"rgb(253,191,111)\",\"1000 - 1200\":\"rgb(234,88,57)\",\"1200 - 1400\":\"rgb(165,0,38)\"},\"legendOpen\":true,\"colors\":{}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-pfsense-*\",\"query\":{\"match_all\":{}},\"filter\":[{\"meta\":{\"index\":\"logstash-pfsense-*\",\"negate\":false,\"disabled\":false,\"alias\":\"Blocked\",\"type\":\"phrase\",\"key\":\"action\",\"value\":\"block\"},\"query\":{\"match\":{\"action\":{\"query\":\"block\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "ed689730-9379-11e7-851b-4be14ad14ed6",
+    "_type": "visualization",
+    "_source": {
+      "title": "Blocked IPs & Ports",
+      "visState": "{\"title\":\"Blocked IPs & Ports\",\"type\":\"histogram\",\"params\":{\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"bottom\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":true,\"truncate\":100},\"title\":{\"text\":\"Blocked IP\"}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"LeftAxis-1\",\"type\":\"value\",\"position\":\"left\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"rotate\":0,\"filter\":false,\"truncate\":100},\"title\":{\"text\":\"Count\"}}],\"seriesParams\":[{\"show\":\"true\",\"type\":\"histogram\",\"mode\":\"stacked\",\"data\":{\"label\":\"Count\",\"id\":\"1\"},\"valueAxis\":\"ValueAxis-1\",\"drawLinesBetweenPoints\":true,\"showCircles\":true}],\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"src_ip.keyword\",\"size\":25,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Blocked IP\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"dest_port.keyword\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Port\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-pfsense-*\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"action: block\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "b3c31a50-92c5-11e7-87a2-7940ffb808f9",
+    "_type": "visualization",
+    "_source": {
+      "title": "Common Destination Ports",
+      "visState": "{\"title\":\"Common Destination Ports\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"dest_port.keyword\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Destination Port\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":true}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-pfsense-*\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "f636e740-92a2-11e7-b4f8-6947ec97a76c",
+    "_type": "visualization",
+    "_source": {
+      "title": "GeoIP Tile Map",
+      "visState": "{\"aggs\":[{\"enabled\":true,\"id\":\"1\",\"params\":{},\"schema\":\"metric\",\"type\":\"count\"},{\"enabled\":true,\"id\":\"2\",\"params\":{\"autoPrecision\":true,\"field\":\"geoip.location\",\"precision\":2,\"useGeocentroid\":true},\"schema\":\"segment\",\"type\":\"geohash_grid\"}],\"listeners\":{},\"params\":{\"addTooltip\":true,\"heatBlur\":15,\"heatMaxZoom\":0,\"heatMinOpacity\":0.1,\"heatRadius\":25,\"isDesaturated\":true,\"legendPosition\":\"bottomright\",\"mapCenter\":[0,0],\"mapType\":\"Scaled Circle Markers\",\"mapZoom\":2,\"wms\":{\"enabled\":false,\"options\":{\"attribution\":\"Maps provided by USGS\",\"format\":\"image/png\",\"layers\":\"0\",\"styles\":\"\",\"transparent\":true,\"version\":\"1.3.0\"},\"url\":\"https://basemap.nationalmap.gov/arcgis/services/USGSTopo/MapServer/WMSServer\"}},\"title\":\"GeoIP Tile Map\",\"type\":\"tile_map\"}",
+      "uiStateJSON": "{\"mapCenter\":[0,-0.087890625],\"mapZoom\":3}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-pfsense-*\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+      }
+    }
+  }
+]
