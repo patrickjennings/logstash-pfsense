@@ -19,6 +19,9 @@ remote Logstash server to the "Remote log servers". For example:
 Finally, check the "Everything" checkbox for "Remote Syslog Contents".
 
 ## Logstash
+Edit conf.d/10-syslog.conf and change the host conditional on line 4 to be your
+pfSense IP address if it is not the default 192.168.1.1.
+
 Copy the contents of the conf.d and patterns directories to /etc/logstash/.
 
 ## Kibana
