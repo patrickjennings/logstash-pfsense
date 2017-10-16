@@ -5,6 +5,8 @@ for displaying blocked events from the firewall.
 Includes a modified from configuration found on the internet to work with the
 latest pfSense release v2.4 and Elastic release v5.5.2.
 
+![alt text](https://raw.githubusercontent.com/patrickjennings/logstash-pfsense/master/kibana_dashboard.jpg "Kibana Dashboard")
+
 # How to install
 ## pfSense
 Enable remote logging in the pfSense web UI by going to:
