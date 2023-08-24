@@ -1,0 +1,8 @@
+version: "3.3"
+
+services:
+  logstash:
+    image: logstash:7.16.3
+    volumes:
+      - ./pipelines:/usr/share/logstash/pipeline
+      - ./patterns:/usr/share/logstash/patterns

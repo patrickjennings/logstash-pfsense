@@ -1,0 +1,45 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kibana-ingress
+  labels:
+    app: kibana
+spec:
+  rules:
+  - host: "kibana.localdomain"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: kibana-kb-http
+            port:
+              number: 5601
+  tls:
+  - hosts:
+    - kibana.localdomain
+    secretName: kibana-cert
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: elasticsearch-ingress
+  labels:
+    app: elasticsearch
+spec:
+  rules:
+  - host: "elasticsearch.localdomain"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: elasticsearch-es-http
+            port:
+              number: 9200
+  tls:
+  - hosts:
+    - elasticsearch.localdomain
+    secretName: elasticsearch-cert

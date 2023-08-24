@@ -1,0 +1,17 @@
+resources:
+- infrastructure/elasticsearch.yaml
+- infrastructure/kibana.yaml
+- infrastructure/ingress.yaml
+- infrastructure/certificate.yaml
+- infrastructure/logstash.yaml
+
+configMapGenerator:
+- name: logstash-pipelines
+  files:
+  - pipelines/01-inputs.conf
+  - pipelines/10-syslog.conf
+  - pipelines/11-pfsense.conf
+  - pipelines/30-outputs.conf
+- name: logstash-patterns
+  files:
+  - patterns/pfsense2-4.grok
